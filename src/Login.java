@@ -6,9 +6,6 @@ public class Login {
     private User_Pass_admin[] User_Pass_admin;
 
 
-
-
-
     public Login(User_Pass[] user_Pass, User_Pass_admin[] user_Pass_admin) {
         User_Pass = user_Pass;
         User_Pass_admin = user_Pass_admin;
@@ -49,7 +46,11 @@ public class Login {
     }
 
     public User_Pass add_user(String user_E, String pass_E) {
-
+        int len = User_Pass.length;
+        User_Pass[len].setUser(user_E);
+        User_Pass[len].setPass(pass_E);
+        User_Pass[len].setCharge(0);
+        return User_Pass[len];
     }
 
 
