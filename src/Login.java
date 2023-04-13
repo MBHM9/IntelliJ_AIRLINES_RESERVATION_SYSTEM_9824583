@@ -3,12 +3,6 @@ import java.util.Arrays;
 public class Login {
 
     private User_Pass[] User_Pass;
-    private String admin1_user = "admin1";
-    private String admin2_user = "admin2";
-    private String admin3_user = "admin3";
-    private String admin1_pass = "pass1";
-    private String admin2_pass = "pass2";
-    private String admin3_pass = "pass3";
 
     public Login(User_Pass[] user_Pass) {
         User_Pass = user_Pass;
@@ -22,41 +16,21 @@ public class Login {
         User_Pass = user_Pass;
     }
 
-    public String getAdmin1_user() {
-        return admin1_user;
+
+
+    public User_Pass find_user (String user_f, String pass_f){
+        for (int i = 0; i < User_Pass.length; i++) {
+            if(User_Pass[i]!=null && user_f == User_Pass[i].getUser()  && pass_f == User_Pass[i].getPass() ){
+                return User_Pass[i];
+            }
+        }
+        return null;
     }
 
-    public String getAdmin2_user() {
-        return admin2_user;
-    }
 
-    public String getAdmin3_user() {
-        return admin3_user;
-    }
 
-    public String getAdmin1_pass() {
-        return admin1_pass;
-    }
 
-    public String getAdmin2_pass() {
-        return admin2_pass;
-    }
 
-    public String getAdmin3_pass() {
-        return admin3_pass;
-    }
 
-    @Override
-    public String toString() {
-        return "Login{" +
-                "User_Pass=" + Arrays.toString(User_Pass) +
-                ", admin1_user='" + admin1_user + '\'' +
-                ", admin2_user='" + admin2_user + '\'' +
-                ", admin3_user='" + admin3_user + '\'' +
-                ", admin1_pass='" + admin1_pass + '\'' +
-                ", admin2_pass='" + admin2_pass + '\'' +
-                ", admin3_pass='" + admin3_pass + '\'' +
-                '}';
-    }
 
 }
