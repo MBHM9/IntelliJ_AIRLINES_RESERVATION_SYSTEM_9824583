@@ -36,6 +36,16 @@ public class Login {
         return null;
     }
 
+    public User_Pass change_pass_user (String user_f, String pass_f){
+        for (int i = 0; i < User_Pass.length; i++) {
+            if(User_Pass[i]!=null && User_Pass[i].getUser().equals(user_f)){
+                User_Pass[i].setPass(pass_f);
+                return User_Pass[i];
+            }
+        }
+        return null;
+    }
+
     public User_Pass_admin find_admin (String admin_user_f, String admin_pass_f){
         for (int i = 0; i < User_Pass_admin.length; i++) {
             if(User_Pass_admin[i]!=null && User_Pass_admin[i].getUser_admin().equals(admin_user_f) && User_Pass_admin[i].getPass_admin().equals(admin_pass_f) ){
@@ -44,6 +54,9 @@ public class Login {
         }
         return null;
     }
+
+
+
 
     public User_Pass add_user(String user_E, String pass_E) {
         int len = User_Pass.length;

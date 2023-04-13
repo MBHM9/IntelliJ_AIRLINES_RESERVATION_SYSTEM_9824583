@@ -12,7 +12,7 @@ public class Main {
 
         User_Pass[] User_Pass = new User_Pass[10000];
         User_Pass[0] = new User_Pass("mohammad", "1234", 5000, null);
-        User_Pass[0] = new User_Pass("Ali", "5863", 1500, null);
+        User_Pass[1] = new User_Pass("Ali", "5863", 1500, null);
 
         User_Pass_admin[] User_Pass_admin = new User_Pass_admin[10];
         User_Pass_admin[0] = new User_Pass_admin("admin1", "123456");
@@ -52,6 +52,7 @@ public class Main {
                 } else {
                    /////////////start passenger menu
                     boolean passenger_menu = true;
+                    passenger_menu_start:
                     while (passenger_menu) {
                         System.out.println("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
                         System.out.println("                  PASSENGER MENU OPTION");
@@ -64,6 +65,21 @@ public class Main {
                         System.out.println("<5> Booked ticket");
                         System.out.println("<6> Add charge");
                         System.out.println("<0> Sign out");
+                        String enter_option_user = input.next();
+                        if(enter_option_user.equals("0")) {
+                            passenger_menu = false;
+                        }if(enter_option_user.equals("1")){
+                            System.out.println("Enter old password:");
+                            String old_pass = input.next();
+                            if(old_pass.equals(user_enter_data.getPass())){
+                                System.out.println("Enter new password:");
+                                String new_pass = input.next();
+                                user_enter_data = Login.change_pass_user(user_enter, new_pass);
+                                System.out.println("Password changed\nnew password : "+new_pass);
+                            }else {
+                                System.out.println("old pass is wrong!");
+                            }
+                        }
                     }
                 }
             }
